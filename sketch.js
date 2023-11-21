@@ -17,7 +17,7 @@ function preload() {
 }
 
 function setup() {
-createCanvas(600, 700);
+createCanvas(windowWidth, windowHeight);
   textSize(fontsize);
 
   // get the width and height of the text so we can center it initially
@@ -27,24 +27,25 @@ createCanvas(600, 700);
   bounds4 = font.textBounds(msg4, 0, 0, fontsize);
 
   
-  x1 = width / 2 - bounds.w / 2;
-  y1 = height / 2 - bounds.h / 2;
+  x1 = windowWidth / 2 - bounds.w / 2;
+  y1 = windowHeight / 2 - bounds.h / 2;
   
-  x2 = width / 2 - bounds2.w / 2;
-  y2 = 3*height / 5 - bounds2.h / 2;
+  x2 = windowWidth / 2 - bounds2.w / 2;
+  y2 = 3*windowHeight / 5 - bounds2.h / 2;
   
   
-  x3 = width / 2 - bounds3.w / 2;
-  y3 = 2*height / 3 - bounds3.h / 2;
+  x3 = windowWidth / 2 - bounds3.w / 2;
+  y3 = 2*windowHeight / 3 - bounds3.h / 2;
 
-  x4 = width / 2 - bounds4.w / 2;
-  y4 = 4*height / 5 - bounds4.h / 2;
+  x4 = windowWidth / 2 - bounds4.w / 2;
+  y4 = 4*windowHeight / 5 - bounds4.h / 2;
 
 }
 
 function draw() {
   clear();
-image(img, -170, 80);
+  imageMode(CENTER);
+image(img, windowWidth/2, windowHeight/2);
   tint(255,250); 
   fill(255,204,204);
   text(message, x1, y1);
@@ -99,5 +100,22 @@ image(img, -170, 80);
   // scale(0.8);
   
   
+}
+
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+
+  x1 = windowWidth / 2 - bounds.w / 2;
+  y1 = windowHeight / 2 - bounds.h / 2;
+  
+  x2 = windowWidth / 2 - bounds2.w / 2;
+  y2 = 3*windowHeight / 5 - bounds2.h / 2;
+  
+  
+  x3 = windowWidth / 2 - bounds3.w / 2;
+  y3 = 2*windowHeight / 3 - bounds3.h / 2;
+
+  x4 = windowWidth / 2 - bounds4.w / 2;
+  y4 = 4*windowHeight / 5 - bounds4.h / 2;
 }
 
